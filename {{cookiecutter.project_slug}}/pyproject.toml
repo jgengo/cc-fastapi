@@ -10,25 +10,52 @@ requires-python = ">=3.12"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = '^3.12'
 celery = '*'
 fastapi = '*'
 httpx = '*'
 pydantic = '*'
 pydantic-settings = '*'
 pytest  = '*'
+python = '^3.12'
 redis = '*'
 uvicorn = {version = '*', extras = ["standard"]}
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
+coverage = { version = '*', extras = ['toml'] }
 flake8 = "*"
+import-linter = '*'
 isort = "*"
 mypy = "*"
-respx = "*"
-pytest-asyncio = "*"
+pre-commit = '*'
 pytest = "*"
+pytest-asyncio = "*"
+pytest-cov = "*"
+respx = "*"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 130
+known_first_party = ["{{cookiecutter.project_slug}}"]
+
+[tool.mypy]
+python_version = "3.12"
+disallow_any_unimported = true
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+show_error_codes = true
+strict_equality = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+plugins = [
+    'pydantic.mypy',
+]
+
+[tool.importlinter]
+root_package = "{{cookiecutter.project_slug}}"

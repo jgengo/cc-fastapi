@@ -1,0 +1,46 @@
+repos:
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: poetry run isort
+        require_serial: true
+        language: system
+        types_or: [python, pyi]
+
+      - id: black
+        name: black
+        entry: poetry run black
+        require_serial: true
+        language: system
+        types_or: [python, pyi]
+
+      - id: flake8
+        name: flake8
+        entry: poetry run flake8
+        require_serial: true
+        language: system
+        types: [python]
+
+      - id: import-linter
+        name: import-linter
+        entry: poetry run lint-imports
+        require_serial: true
+        language: system
+        types: [python]
+        pass_filenames: false
+
+      - id: pygrep-no-optional-type-hint
+        name: Preclude the Optional type-hint
+        description: "Use | None instead of Optional[T] for better type hints"
+        entry: 'Optional\[.*\]'
+        language: pygrep
+        types: [python]
+
+      - id: mypy
+        name: mypy
+        entry: poetry run mypy .
+        require_serial: true
+        language: system
+        types: [python]
+        pass_filenames: false

@@ -1,0 +1,11 @@
+.env
+*.pyc
+.python-version
+.venv
+.vscode
+__pycache__
+.DS_Store
+htmlcov/
+test-reports/
+coverage.xml
+.coverage
