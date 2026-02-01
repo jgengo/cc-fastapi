@@ -14,6 +14,12 @@
 
 If you actually enjoy using it, lovely 🩵 
 
+<br>
+<div align="center">
+    <img src='.github/docs/terminal.gif' alt="terminal demo" />
+</div>
+<br>
+
 ### Usage
 
 1. Make sure you have [cookiecutter](https://github.com/cookiecutter/cookiecutter) installed first.
