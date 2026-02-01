@@ -8,7 +8,7 @@
   <sub>Created by <a href="https://github.com/jgengo">Jordane Gengo</a></sub>
 </div>
 
-<br/>
+<br/><br/>
 
 **cc-fastapi** is a minimal FastAPI project template for [Cookiecutter](https://github.com/cookiecutter/cookiecutter), designed for quick prototyping and new service development. Built primarily for personal use, it eliminates repetitive boilerplate setup so I can focus on what matters.
 
