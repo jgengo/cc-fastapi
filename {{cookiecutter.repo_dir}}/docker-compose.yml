@@ -1,0 +1,14 @@
+
+services:
+  {{cookiecutter.package_dir}}:
+    image: ${IMAGE:-{{cookiecutter.package_dir}}:development}
+    build:
+      context: .
+      target: development
+    command: uvicorn --reload --host=0.0.0.0 --port=8000 {{cookiecutter.package_dir}}.main:app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
