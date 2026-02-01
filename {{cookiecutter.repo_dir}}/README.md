@@ -9,7 +9,7 @@
 
 <br /><br />
 
-`{{cookiecutter.project_name}}` is .. lorem ipsum
+`{{cookiecutter.project_name}}` is .. lorem ipsum, add here a description of the service, what it achieves, why it exists, your usual bla bla.
 
 <br>
 
