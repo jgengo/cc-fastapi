@@ -23,7 +23,7 @@ lint: # Runs linting with pre-commit
 	$(DC_RUN) pre-commit run --all-files --color=always
 
 .PHONY: test
-target=tests
+target ?= tests
 test: # Runs pytest within docker container
 	$(DC_RUN) pytest --color=yes --cov --cov-report html $(target)
 
@@ -31,10 +31,6 @@ test: # Runs pytest within docker container
 format: # Automatically formats code with black and isort
 	@poetry run black {{cookiecutter.package_dir}} tests
 	@poetry run isort {{cookiecutter.package_dir}} tests
-
-.PHONY: mypy
-mypy: # Runs mypy type checker
-	@poetry run mypy {{cookiecutter.package_dir}}
 
 .PHONY: test-local
 test-local: # Runs pytest
