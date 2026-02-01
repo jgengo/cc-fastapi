@@ -1,9 +1,25 @@
+import os
 import shutil
 import subprocess
 
 ERROR = "[\x1b[1;31mERROR\x1b[0m]"
 SUCCESS = "[\x1b[1;32mOK\x1b[0m]"
 INFO = "[\x1b[1;33mINFO\x1b[0m]"
+
+
+TO_DELETE = [
+    f'{% if not cookiecutter.sentry %}{{cookiecutter.package_dir}}/common/clients/sentry.py{% endif %}',
+]
+
+def delete_unused_files():
+    print(f"{INFO} Deleting unused files...")
+    for path in TO_DELETE:
+        path = path.strip()
+        if path and os.path.exists(path):
+            print(f"{INFO}\t\t• Deleting {path}", end=" ")
+            os.unlink(path) if os.path.isfile(path) else shutil.rmtree(path)
+            print(f"{SUCCESS}")
+    print(f"{SUCCESS} Deleted all the unused files")
 
 
 def run_cmd(cmd: list[str], description: str) -> bool:
@@ -17,6 +33,8 @@ def run_cmd(cmd: list[str], description: str) -> bool:
 
 
 print(f"{SUCCESS} Sucesfully created {{cookiecutter.repo_dir}} directory")
+
+delete_unused_files()
 
 shutil.copy("env.sample", ".env")
 print(f"{SUCCESS} Copied env.sample to .env")

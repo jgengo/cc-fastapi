@@ -18,6 +18,9 @@ pydantic-settings = '*'
 pytest  = '*'
 python = '^3.12'
 redis = '*'
+{%- if cookiecutter.sentry %}
+sentry-sdk = "*"
+{%- endif %}
 uvicorn = {version = '*', extras = ["standard"]}
 
 [tool.poetry.group.dev.dependencies]

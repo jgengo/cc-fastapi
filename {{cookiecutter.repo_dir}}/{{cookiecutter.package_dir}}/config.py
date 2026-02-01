@@ -13,6 +13,11 @@ class EnvEnum(str, Enum):
 class Config(BaseSettings):
     env: EnvEnum
 
+    {%- if cookiecutter.sentry %}
+    enable_sentry: bool = False
+    sentry_dsn: str
+    {%- endif %}
+
     def env_is_prod(self) -> bool:
         return self.env == EnvEnum.PRODUCTION
 

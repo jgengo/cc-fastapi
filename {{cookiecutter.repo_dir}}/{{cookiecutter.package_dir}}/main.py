@@ -2,6 +2,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import APIRouter, FastAPI
 
+{%- if cookiecutter.sentry %}
+from {{cookiecutter.package_dir}}.common.clients.sentry import init_sentry
+{%- endif %}
 from {{cookiecutter.package_dir}}.config import Config
 from {{cookiecutter.package_dir}}.health.api import create_health_router
 
@@ -24,6 +27,10 @@ def create_api(config: Config, do_enable_lifespan: bool = True) -> FastAPI:
         title="{{cookiecutter.project_name}}",
         lifespan=lifespan if do_enable_lifespan else None
     )
+
+    {%- if cookiecutter.sentry %}
+    init_sentry(config)
+    {%- endif %}
 
     return app
 
