@@ -1,7 +1,7 @@
 [project]
-name = "{{cookiecutter.project_slug}}"
-version = "{{cookiecutter.project_version}}"
-description = "{{cookiecutter.project_description}}"
+name = "{{cookiecutter.package_dir}}"
+version = "{{cookiecutter._version}}"
+description = "{{cookiecutter.description}}"
 authors = [{name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}]
 readme = "README.md"
 requires-python = ">=3.12"
@@ -40,7 +40,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.isort]
 profile = "black"
 line_length = 130
-known_first_party = ["{{cookiecutter.project_slug}}"]
+known_first_party = ["{{cookiecutter.package_dir}}"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -58,4 +58,4 @@ plugins = [
 ]
 
 [tool.importlinter]
-root_package = "{{cookiecutter.project_slug}}"
+root_package = "{{cookiecutter.package_dir}}"

@@ -3,9 +3,9 @@ from http import HTTPStatus
 import pytest
 from fastapi.testclient import TestClient
 
-from {{cookiecutter.project_slug}}.config import Config
-from {{cookiecutter.project_slug}}.health.api import create_health_router
-from {{cookiecutter.project_slug}}.main import create_api
+from {{cookiecutter.package_dir}}.config import Config
+from {{cookiecutter.package_dir}}.health.api import create_health_router
+from {{cookiecutter.package_dir}}.main import create_api
 
 
 @pytest.fixture

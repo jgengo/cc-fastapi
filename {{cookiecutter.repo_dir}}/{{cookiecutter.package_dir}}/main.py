@@ -2,8 +2,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import APIRouter, FastAPI
 
-from {{cookiecutter.project_slug}}.config import Config
-from {{cookiecutter.project_slug}}.health.api import create_health_router
+from {{cookiecutter.package_dir}}.config import Config
+from {{cookiecutter.package_dir}}.health.api import create_health_router
 
 
 def create_routers(config: Config) -> list[APIRouter]:
@@ -28,5 +28,5 @@ def create_api(config: Config, do_enable_lifespan: bool = True) -> FastAPI:
     return app
 
 
-if __name__ in {"main", "{{cookiecutter.project_slug}}.main"}:  # pargma: no cover
+if __name__ in {"main", "{{cookiecutter.package_dir}}.main"}:  # pargma: no cover
     app = create_api(config=Config())

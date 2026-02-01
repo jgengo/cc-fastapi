@@ -1,9 +1,10 @@
 {
     "project_name": "Project Name",
-    "project_slug": "{{cookiecutter.project_name | slugify }}",
-    "project_version": "0.0.1",
-    "project_description": "",
+    "description": "A short description of the project.",
+    "repo_dir": "{{ cookiecutter.project_name | slugify }}",
+    "package_dir": "{{ cookiecutter.repo_dir | slugify | replace('-', '_') | replace('.', '_') | trim() }}",
     "author_name": "Your Name",
     "author_email": "you@example.com",
-    "_extensions": ["cookiecutter.extensions.SlugifyExtension"]
+    "_extensions": ["cookiecutter.extensions.SlugifyExtension"],
+    "_version": "0.0.1"
 }

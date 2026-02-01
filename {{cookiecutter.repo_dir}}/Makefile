@@ -7,13 +7,13 @@ help: # Prints this help message
 
 .PHONY: format
 format: # Automatically formats code with black and isort
-	@poetry run black {{cookiecutter.project_slug}} tests
-	@poetry run isort {{cookiecutter.project_slug}} tests
+	@poetry run black {{cookiecutter.package_dir}} tests
+	@poetry run isort {{cookiecutter.package_dir}} tests
 
 .PHONY: mypy
 mypy: # Runs mypy type checker
-	@poetry run mypy {{cookiecutter.project_slug}}
+	@poetry run mypy {{cookiecutter.package_dir}}
 
 .PHONY: test-local
 test-local: # Runs pytest
-	@poetry run pytest --cov={{cookiecutter.project_slug}} --cov-report=term-missing tests/
+	@poetry run pytest --cov={{cookiecutter.package_dir}} --cov-report=term-missing tests/

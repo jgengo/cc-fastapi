@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from {{cookiecutter.project_slug}}.health.api_format import GetHealthResponse
+from {{cookiecutter.package_dir}}.health.api_format import GetHealthResponse
 
 
 def create_health_router() -> APIRouter:
