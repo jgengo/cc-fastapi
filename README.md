@@ -12,12 +12,15 @@
 
 **cc-fastapi** is a minimal FastAPI project template designed for quick prototyping and new service development. Built primarily for personal use, it eliminates the repetitive boilerplate setup so I can focus on what matters.
 
-If you actually enjoy using it, lovely 🩵
-
-<br/><br/>
+If you actually enjoy using it, lovely 🩵 
 
 ### Usage
 
-```
-cookiecutter https://github.com/jgengo/cc-fastapi
-```
+1. Make sure you have [cookiecutter](https://github.com/cookiecutter/cookiecutter) installed first.
+2. Run the following command:
+
+   ```shell
+   cookiecutter https://github.com/jgengo/cc-fastapi
+   ```
+
+3. Follow the instructions and enjoy ✨
