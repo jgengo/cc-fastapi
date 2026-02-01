@@ -1,5 +1,5 @@
 <div align="center">
-    <img src='.github/docs/logo.png' alt="cc-fastapi's logo" /><br />
+    <img src='.github/docs/logo.png' width="200" height="200" alt="cc-fastapi's logo"  /><br />
     <h1 align="center">cc-fastapi</h1>
     <sub>A minimal FastAPI project template, for Cookiecutter</sub>
 </div>
