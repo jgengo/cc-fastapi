@@ -1,8 +1,0 @@
-version: 2
-updates:
-  - package-ecosystem: "pip"
-    directory: "{{cookiecutter.repo_dir}}"
-    schedule:
-      interval: "weekly"
-    commit-message:
-      prefix: "deps"
