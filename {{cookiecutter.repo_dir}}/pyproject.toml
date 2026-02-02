@@ -13,6 +13,7 @@ package-mode = false
 celery = '*'
 fastapi = '*'
 httpx = '*'
+gunicorn = '*'
 pydantic = '*'
 pydantic-settings = '*'
 pytest  = '*'

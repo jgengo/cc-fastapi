@@ -1,0 +1,20 @@
+services:
+  {{cookiecutter.package_dir}}:
+    build:
+      context: .
+      target: development
+    command:
+      [
+        "gunicorn",
+        "--workers=2",
+        "--worker-class",
+        "uvicorn.workers.UvicornWorker",
+        "--bind=0.0.0.0:8000",
+        "{{cookiecutter.package_dir}}.main:app",
+      ]
+    env_file:
+      - .env
+    volumes:
+      - ./test-reports/:/app/test-reports/
+    ports:
+      - "8000:8000"
