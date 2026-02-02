@@ -8,3 +8,5 @@ updates:
     directory: "/{{cookiecutter.repo_dir}}"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "deps"
