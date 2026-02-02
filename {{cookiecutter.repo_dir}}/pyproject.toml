@@ -60,5 +60,12 @@ plugins = [
     'pydantic.mypy',
 ]
 
+[tool.pytest]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
 [tool.importlinter]
 root_package = "{{cookiecutter.package_dir}}"
