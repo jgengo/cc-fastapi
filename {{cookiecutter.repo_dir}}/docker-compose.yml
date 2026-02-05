@@ -12,3 +12,26 @@ services:
       - .:/app
     env_file:
       - .env
+    {%- if cookiecutter.celery %}
+    depends_on:
+      - redis
+    {%- endif %}
+
+  {%- if cookiecutter.celery %}
+  worker:
+    build:
+      context: .
+      target: development
+    command: celery -A {{cookiecutter.package_dir}}.worker.celery worker --loglevel=info
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+  {%- endif %}
