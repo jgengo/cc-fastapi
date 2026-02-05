@@ -9,6 +9,9 @@ INFO = "[\x1b[1;33mINFO\x1b[0m]"
 
 TO_DELETE = [
     f'{% if not cookiecutter.sentry %}{{cookiecutter.package_dir}}/common/clients/sentry.py{% endif %}',
+    f'{% if not cookiecutter.celery %}{{cookiecutter.package_dir}}/tasks/{% endif %}',
+    f'{% if not cookiecutter.celery %}{{cookiecutter.package_dir}}/worker.py{% endif %}',
+    f'{% if not cookiecutter.celery %}tests/tasks/{% endif %}',
 ]
 
 def delete_unused_files():

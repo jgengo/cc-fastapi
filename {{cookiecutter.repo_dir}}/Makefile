@@ -35,3 +35,17 @@ format: # Automatically formats code with black and isort
 .PHONY: test-local
 test-local: # Runs pytest
 	@poetry run pytest --cov={{cookiecutter.package_dir}} --cov-report=term-missing tests/
+
+{%- if cookiecutter.celery %}
+.PHONY: worker-logs
+worker-logs: # Shows Celery worker logs
+	@docker compose logs -f worker
+
+.PHONY: purge-queue
+purge-queue: # Purges all pending tasks from the queue
+	@docker compose run --rm worker celery -A {{cookiecutter.package_dir}}.worker.celery purge -f
+
+.PHONY: inspect-workers
+inspect-workers: # Shows active Celery workers and their status
+	@docker compose run --rm worker celery -A {{cookiecutter.package_dir}}.worker.celery inspect active
+{%- endif %}

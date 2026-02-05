@@ -18,6 +18,10 @@ class Config(BaseSettings):
     sentry_dsn: str
     {%- endif %}
 
+    {%- if cookiecutter.celery %}
+    redis_url: str = "redis://localhost:6379/0"
+    {%- endif %}
+
     def env_is_prod(self) -> bool:
         return self.env == EnvEnum.PRODUCTION
 

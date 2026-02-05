@@ -18,3 +18,22 @@ services:
       - ./test-reports/:/app/test-reports/
     ports:
       - "8000:8000"
+    {%- if cookiecutter.celery %}
+    depends_on:
+      - redis
+    {%- endif %}
+
+  {%- if cookiecutter.celery %}
+  worker:
+    build:
+      context: .
+      target: development
+    command: celery -A {{cookiecutter.package_dir}}.worker.celery worker --loglevel=info
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+  {%- endif %}

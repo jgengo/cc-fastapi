@@ -7,12 +7,19 @@ from {{cookiecutter.package_dir}}.common.clients.sentry import init_sentry
 {%- endif %}
 from {{cookiecutter.package_dir}}.config import Config
 from {{cookiecutter.package_dir}}.health.api import create_health_router
+{%- if cookiecutter.celery %}
+from {{cookiecutter.package_dir}}.tasks.api import create_tasks_router
+{%- endif %}
 
 
 def create_routers(config: Config) -> list[APIRouter]:
-    return [
+    routers = [
         create_health_router(),
+        {%- if cookiecutter.celery %}
+        create_tasks_router(),
+        {%- endif %}
     ]
+    return routers
 
 
 def create_api(config: Config, do_enable_lifespan: bool = True) -> FastAPI:
@@ -25,6 +32,7 @@ def create_api(config: Config, do_enable_lifespan: bool = True) -> FastAPI:
 
     app = FastAPI(
         title="{{cookiecutter.project_name}}",
+        description="{{cookiecutter.description}}",
         lifespan=lifespan if do_enable_lifespan else None
     )
 
