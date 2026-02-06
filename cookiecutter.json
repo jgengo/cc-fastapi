@@ -1,12 +1,19 @@
 {
-    "project_name": "Project Name",
+    "project_name": "project-name",
     "description": "A short description of the project.",
     "repo_dir": "{{ cookiecutter.project_name | slugify }}",
     "package_dir": "{{ cookiecutter.repo_dir | slugify | replace('-', '_') | replace('.', '_') | trim() }}",
-    "author_name": "Your Name",
-    "author_email": "you@example.com",
+    "author_name": "Jordane Gengo",
+    "author_email": "your-email@gmail.com",
     "sentry": false,
     "celery": false,
     "_extensions": ["cookiecutter.extensions.SlugifyExtension"],
-    "_version": "0.0.1"
+    "_version": "0.0.1",
+    "__prompts__": {
+        "project_name": "Project name: ",
+        "repo_dir": "Repository name: ",
+        "package_dir": "Package name: ",
+        "sentry": "Do you need sentry: ",
+        "celery": "Do you need celery: "
+    }
 }
